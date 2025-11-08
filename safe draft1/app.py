@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import google.generativeai as genai
 
 # Configure the Generative AI API key
-GOOGLE_API_KEY = "AIzaSyA-IrmcM4QESps4ztLAViDArvVWB02XGOs"
+GOOGLE_API_KEY = ""
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Initialize chat model
