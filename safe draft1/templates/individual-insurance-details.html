@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Company Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        ul.insurance-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+            gap: 20px;
+        }
+
+        li.insurance-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%; /* Make each item take full width */
+        }
+
+        li.insurance-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        li.insurance-item span {
+            font-size: 1.2em;
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        li.insurance-item button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        li.insurance-item button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            ul.insurance-list {
+                grid-template-columns: repeat(2, 1fr); /* 2 items per row on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            ul.insurance-list {
+                grid-template-columns: 1fr; /* 1 item per row on mobile screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Serenova - Select Your Insurance Company</h1>
+    </header>
+
+    <div class="container">
+        <p class="intro-text">
+            At Serenova, we understand the importance of choosing the right insurance for your individual needs. 
+            Individual insurance offers personalized coverage for health, life, and general purposes, ensuring that 
+            you are protected against unforeseen risks and emergencies. Whether you're looking for health insurance to 
+            cover medical expenses, life insurance to secure your family's future, or general insurance to protect your 
+            assets, we offer a wide range of options tailored just for you. Explore the top insurance providers below and 
+            find the best coverage that suits your lifestyle and requirements.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search for an insurance company..." onkeyup="filterList()">
+        </div>
+
+        <h2>List of Insurance Companies:</h2>
+
+        <ul class="insurance-list" id="insurance-list">
+            <li class="insurance-item">
+                <span>🌟 HDFC ERGO HealthGuard Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>💙 Star Health & Shield Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🔥 Reliance Secure Life Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>💎 Bajaj Allianz HealthPrime Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🌱 Max Bupa VitalCare Health Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🛡️ ICICI Lombard ProtectPlus Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🔒 New India SafeGuard Assurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🏥 SBI HealthSecure Plan</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🔑 Tata AIG Secure Shield Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>💡 Aditya Birla CareMax Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🌍 ManipalCigna HealthAssist Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🚗 Acko DriveSafe General Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🌟 Future Generali SecureLife Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>💬 Royal Sundaram SafeGuard Plus</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🏆 Exide Life SecureFuture Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🔹 Birla Sun Life Shield Plan</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>📊 Bharti AXA HealthMax Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>⚡ Future Generali HealthSecure Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>💼 HDFC Life LifeGuard Plan</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🛡️ LIC India LifeSecure Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🔐 Kotak Mahindra General Secure Plan</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🌟 Bharti AXA LifeSecure Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🏠 Oriental PropertyShield Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>💡 Reliance LifeProtection Plan</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>💼 GoDigit CompleteCare Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🛡️ Shriram SafeGuard Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+            <li class="insurance-item">
+                <span>🚑 ICICI Prudential HealthShield Insurance</span>
+                <button>GET QUOTE</button>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Serenova Insurance App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function filterList() {
+            const searchQuery = document.getElementById('search-bar').value.toLowerCase();
+            const items = document.querySelectorAll('.insurance-item');
+            
+            items.forEach(item => {
+                const companyName = item.querySelector('span').textContent.toLowerCase();
+                if (companyName.includes(searchQuery)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

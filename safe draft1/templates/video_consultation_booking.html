@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Video Call Consultation - Serenova Healthcare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        .appointment-section {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #fff;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .appointment-section h2 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .appointment-section p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: left;
+            color: #333;
+        }
+
+        input[type="text"], input[type="email"], input[type="date"], select {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.2em;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .thank-you-message {
+            display: none;
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #e9f7ef;
+            color: #28a745;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Book Video Call Consultation</h1>
+        <p>Consult with our doctors from the comfort of your home.</p>
+    </header>
+
+    <div class="appointment-section">
+        <h2>Book Your Consultation</h2>
+        <p>Fill out the form below to schedule a video call consultation with one of our specialists.</p>
+        <form id="appointment-form">
+            <!-- Name -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <!-- Email -->
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <!-- Phone -->
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <!-- Consultation Type -->
+            <label for="consultation-type">Select Consultation Type:</label>
+            <select id="consultation-type" name="consultation-type" required>
+                <option value="">-- Select Consultation Type --</option>
+                <option value="general">General Consultation</option>
+                <option value="specialist">Specialist Consultation</option>
+            </select>
+
+            <!-- Select Doctor -->
+            <label for="doctor">Choose Your Doctor:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="">-- Select Doctor --</option>
+                <option value="Dr. John Doe">Dr. John Doe - General Practitioner</option>
+                <option value="Dr. Sarah Smith">Dr. Sarah Smith - Cardiologist</option>
+                <option value="Dr. Emily Brown">Dr. Emily Brown - Dermatologist</option>
+                <option value="Dr. Michael Clark">Dr. Michael Clark - Neurologist</option>
+            </select>
+
+            <!-- Appointment Date -->
+            <label for="appointment-date">Preferred Appointment Date:</label>
+            <input type="date" id="appointment-date" name="appointment-date" required>
+
+            <!-- Submit Button -->
+            <input type="submit" value="Book Appointment">
+        </form>
+
+        <div class="thank-you-message" id="thank-you-message">
+            Thank you for booking your consultation! Our team will contact you shortly to confirm the details.
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">Back to Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Serenova Healthcare. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Handle form submission
+        const form = document.getElementById('appointment-form');
+        const thankYouMessage = document.getElementById('thank-you-message');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission
+            thankYouMessage.style.display = 'block'; // Show thank-you message
+            form.style.display = 'none'; // Hide the form
+        });
+    </script>
+
+</body>
+</html>

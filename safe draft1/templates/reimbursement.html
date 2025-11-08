@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reimbursement Claims - Serenova Healthcare</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gov-id {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background-color: #f5f5f5;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #666;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .claim-form-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .file-upload {
+            border: 2px dashed #007bff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .gov-text {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;  /* Classical Latin-style font */
+            color: #252424;
+            font-size: 0.9em;
+            margin-top: -10px;
+            font-style: italic;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <div class="gov-id">
+        #DRD18976
+    </div>
+
+    <header>
+        <h1>Medical Reimbursement Claims</h1>
+        <p class="gov-text">- government employee -</p>
+    </header>
+
+    <div class="claim-form-container">
+        <form id="reimbursementForm">
+            <div class="form-group">
+                <label for="claimType">Type of Claim</label>
+                <select id="claimType" required>
+                    <option value="">Select Claim Type</option>
+                    <option value="consultation">Consultation Fees</option>
+                    <option value="medication">Medication</option>
+                    <option value="hospitalization">Hospitalization</option>
+                    <option value="surgery">Surgery</option>
+                    <option value="other">Other Medical Expenses</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Claim Amount (₹)</label>
+                <input type="number" id="amount" required min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date of Expense</label>
+                <input type="date" id="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" rows="4" required></textarea>
+            </div>
+
+            <div class="file-upload">
+                <label for="documents">Upload Supporting Documents</label>
+                <input type="file" id="documents" multiple accept=".pdf,.jpg,.jpeg,.png">
+                <p>Upload bills, prescriptions, and other relevant documents</p>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Claim</button>
+        </form>
+    </div>
+
+    <a href="/government-employee" class="back-link">← Back to Dashboard</a>
+
+    <footer>
+        <p>&copy; 2024 Serenova Healthcare. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('reimbursementForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Claim submitted successfully!');
+        });
+    </script>
+</body>
+</html> 

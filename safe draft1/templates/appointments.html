@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments - Serenova Healthcare</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        .container {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group select, .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .submit-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+        .appointment-list {
+            margin-top: 30px;
+            background: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .appointment-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .appointment-item:last-child {
+            border-bottom: none;
+        }
+
+        .no-appointments {
+            text-align: center;
+            color: #555;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Healthcare Appointments</h1>
+        <p>Your health is our priority</p>
+    </header>
+
+    <div class="container">
+        <h2>Book an Appointment</h2>
+        <form id="appointment-form">
+            <!-- Hospital Dropdown -->
+            <div class="form-group">
+                <label for="hospital">Hospital</label>
+                <select id="hospital" name="hospital" required>
+                    <option value="">-- Select Hospital --</option>
+                    <option value="KIMS Hospitals, Kondapur, Hyderabad">KIMS Hospitals, Kondapur, Hyderabad</option>
+                    <option value="AIG Hospital, Gachibowli, Hyderabad">AIG Hospital, Gachibowli, Hyderabad</option>
+                    <option value="CARE Hospitals, Hyderabad">CARE Hospitals, Hyderabad</option>
+                    <option value="Apollo Hospitals, Jubilee Hills, Hyderabad">Apollo Hospitals, Jubilee Hills, Hyderabad</option>
+                    <option value="Yashoda Hospitals, Secunderabad, Hyderabad">Yashoda Hospitals, Secunderabad, Hyderabad</option>
+                    <option value="Sunshine Hospitals, Paradise Circle, Secunderabad, Hyderabad">Sunshine Hospitals, Paradise Circle, Secunderabad, Hyderabad</option>
+                    <option value="Continental Hospitals, Gachibowli, Hyderabad">Continental Hospitals, Gachibowli, Hyderabad</option>
+                    <option value="Medicover Hospitals, Hitech City, Hyderabad">Medicover Hospitals, Hitech City, Hyderabad</option>
+                    <option value="Aster Prime Hospital, Ameerpet, Hyderabad">Aster Prime Hospital, Ameerpet, Hyderabad</option>
+                    <option value="Oliva Skin & Hair Clinic, Jubilee Hills, Hyderabad">Oliva Skin & Hair Clinic, Jubilee Hills, Hyderabad</option>
+                    <option value="Dr. Madhavi's Advanced Skin Hair and Laser Clinic, Kukatpally, Hyderabad">Dr. Madhavi's Advanced Skin Hair and Laser Clinic, Kukatpally, Hyderabad</option>
+                    <option value="Rajeshwari Skin Clinic, Secunderabad, Hyderabad">Rajeshwari Skin Clinic, Secunderabad, Hyderabad</option>
+                    <option value="Yashoda Cancer Institute, Somajiguda, Hyderabad">Yashoda Cancer Institute, Somajiguda, Hyderabad</option>
+                    <option value="Basavatarakam Indo American Cancer Hospital & Research Institute, Banjara Hills, Hyderabad">Basavatarakam Indo American Cancer Hospital & Research Institute, Banjara Hills, Hyderabad</option>
+                    <option value="Sunshine Hospitals, Secunderabad, Hyderabad">Sunshine Hospitals, Secunderabad, Hyderabad</option>
+                    <option value="MaxCure Hospitals, Madhapur, Hyderabad">MaxCure Hospitals, Madhapur, Hyderabad</option>
+                    <option value="Global Hospitals, Lakdi Ka Pul, Hyderabad">Global Hospitals, Lakdi Ka Pul, Hyderabad</option>
+                </select>
+            </div>
+
+            <!-- Specialization Dropdown -->
+            <div class="form-group">
+                <label for="specialization">Specialization</label>
+                <select id="specialization" name="specialization" required>
+                    <option value="">-- Select Specialization --</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Dermatology">Dermatology</option>
+                    <option value="Neurology">Neurology</option>
+                    <option value="Oncology">Oncology</option>
+                    <option value="Orthopedics">Orthopedics</option>
+                    <option value="Pediatrics">Pediatrics</option>
+                    <option value="Psychiatry">Psychiatry</option>
+                    <option value="Radiology">Radiology</option>
+                </select>
+            </div>
+
+            <!-- Doctor Dropdown -->
+            <div class="form-group" id="doctor-group" style="display:none;">
+                <label for="doctor">Doctor</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="">-- Select Doctor --</option>
+                </select>
+            </div>
+
+            <!-- Patient Name -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Preferred Date -->
+            <div class="form-group">
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <button type="button" id="book-appointment" class="submit-button">Book Appointment</button>
+        </form>
+    </div>
+
+    <!-- Previous Appointments -->
+    <div class="container">
+        <h3>Previous Appointments</h3>
+        <div class="appointment-list" id="previous-appointments">
+            <p class="no-appointments">No previous appointments available.</p>
+        </div>
+    </div>
+
+    <!-- Future Appointments -->
+    <div class="container">
+        <h3>Future Appointments</h3>
+        <div class="appointment-list" id="future-appointments">
+            <p class="no-appointments">No future appointments scheduled.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Serenova Healthcare. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const doctors = {
+            "Cardiology": [
+                "Dr. Ravi Kumar", 
+                "Dr. Sunita Rao", 
+                "Dr. Suresh Verma"
+            ],
+            "Dermatology": [
+                "Dr. Madhavi Reddy", 
+                "Dr. Aditi Sharma", 
+                "Dr. Priya Soni"
+            ],
+            "Neurology": [
+                "Dr. Ravi Kiran", 
+                "Dr. Mohan Rao", 
+                "Dr. Deepa Verma"
+            ],
+            "Oncology": [
+                "Dr. Amit Kapoor", 
+                "Dr. Preeti Aggarwal", 
+                "Dr. Sandeep Sharma"
+            ],
+            "Orthopedics": [
+                "Dr. Shyam Sundar", 
+                "Dr. Radhika Mehta", 
+                "Dr. Nitin Kumar"
+            ],
+            "Pediatrics": [
+                "Dr. Ramesh Chandra", 
+                "Dr. Rekha Yadav", 
+                "Dr. Meenakshi Sharma"
+            ],
+            "Psychiatry": [
+                "Dr. Arun Verma", 
+                "Dr. Neha Singh", 
+                "Dr. Ashok Kumar"
+            ],
+            "Radiology": [
+                "Dr. Rajesh Gupta", 
+                "Dr. Manju Kumari", 
+                "Dr. Vikram Soni"
+            ]
+        };
+
+        document.getElementById("specialization").addEventListener("change", function() {
+            const specialization = this.value;
+            const doctorGroup = document.getElementById("doctor-group");
+            const doctorSelect = document.getElementById("doctor");
+
+            if (specialization && doctors[specialization]) {
+                doctorGroup.style.display = "block";
+                doctorSelect.innerHTML = "<option value=''>-- Select Doctor --</option>";
+                doctors[specialization].forEach(doctor => {
+                    const option = document.createElement("option");
+                    option.value = doctor;
+                    option.textContent = doctor;
+                    doctorSelect.appendChild(option);
+                });
+            } else {
+                doctorGroup.style.display = "none";
+            }
+        });
+
+        const previousAppointments = [
+            { hospital: "KIMS Hospitals, Kondapur, Hyderabad", specialization: "Cardiology", doctor: "Dr. Ravi Kumar", name: "John Doe", date: "2024-12-01" },
+            { hospital: "AIG Hospital, Gachibowli, Hyderabad", specialization: "Dermatology", doctor: "Dr. Madhavi Reddy", name: "Jane Smith", date: "2024-11-15" }
+        ];
+
+        const futureAppointments = [
+            { hospital: "CARE Hospitals, Hyderabad", specialization: "Pediatrics", doctor: "Dr. Ramesh Chandra", name: "Sam Brown", date: "2024-12-30" },
+            { hospital: "Medicover Hospitals, Hitech City, Hyderabad", specialization: "Orthopedics", doctor: "Dr. Shyam Sundar", name: "Emily Clark", date: "2025-01-05" }
+        ];
+
+        function displayAppointments(appointments, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = "";
+            if (appointments.length === 0) {
+                container.innerHTML = '<p class="no-appointments">No appointments available.</p>';
+            } else {
+                appointments.forEach(appointment => {
+                    const div = document.createElement("div");
+                    div.className = "appointment-item";
+                    div.innerHTML = `
+                        <strong>Hospital:</strong> ${appointment.hospital}<br>
+                        <strong>Specialization:</strong> ${appointment.specialization}<br>
+                        <strong>Doctor:</strong> ${appointment.doctor}<br>
+                        <strong>Name:</strong> ${appointment.name}<br>
+                        <strong>Date:</strong> ${appointment.date}
+                    `;
+                    container.appendChild(div);
+                });
+            }
+        }
+
+        document.getElementById("book-appointment").addEventListener("click", () => {
+            const hospital = document.getElementById("hospital").value;
+            const specialization = document.getElementById("specialization").value;
+            const doctor = document.getElementById("doctor").value;
+            const name = document.getElementById("name").value;
+            const date = document.getElementById("date").value;
+
+            if (hospital && specialization && doctor && name && date) {
+                futureAppointments.push({ hospital, specialization, doctor, name, date });
+                displayAppointments(futureAppointments, "future-appointments");
+                alert("Appointment booked successfully!");
+            } else {
+                alert("Please fill out all fields!");
+            }
+        });
+
+        // Display appointments on page load
+        displayAppointments(previousAppointments, "previous-appointments");
+        displayAppointments(futureAppointments, "future-appointments");
+    </script>
+
+</body>
+</html>

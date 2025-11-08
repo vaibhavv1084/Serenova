@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Serenova Healthcare provides advanced healthcare services including insurance, blood donation, appointments, e-pharmacy, and more.">
+    <title>Serenova - Special Touch Healthcare</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #f5faff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #007bff;
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background-color: #dcecff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero-content, .hero-image {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .hero-content h2 {
+            color: #007bff;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .services h3 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .service {
+            width: 250px;
+            margin: 10px;
+            padding: 20px;
+            background-color: #f5faff;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .service a {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .service a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        /* Chat Box Styles */
+        .chat-box-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 1.5em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .chat-box-button:hover {
+            background-color: #0056b3;
+        }
+
+        .popup-container {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .popup-container.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .chat-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #f5faff;
+        }
+        .chat-message {
+            margin-bottom: 10px;
+        }
+
+        .chat-message.user {
+            text-align: right;
+            color: #007bff;
+        }
+
+        .chat-message.bot {
+            text-align: left;
+            color: #333;
+        }
+
+
+        .chat-footer {
+            padding: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .chat-footer button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .chat-footer button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+
+            .service {
+                width: 100%;
+            }
+        }
+
+        /* Add this to your existing CSS */
+        .specialty-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .specialty-links a {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            margin: 2px;
+        }
+
+        .specialty-links a:hover {
+            background-color: #0056b3;
+        }
+
+        .gov-id {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background-color: #f5f5f5;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #666;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        header {
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .gov-text {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            color: #808080;
+            font-size: 0.9em;
+            margin-top: -10px;
+            font-style: italic;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px; /* Adjusted width */
+            height: 20px; /* Adjusted height */
+            margin-left: 10px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px; /* Adjusted height */
+            width: 16px; /* Adjusted width */
+            left: 2px; /* Adjusted for smaller size */
+            bottom: 2px; /* Adjusted for smaller size */
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #007bff;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px); /* Adjusted for smaller size */
+        }
+
+        .latin-font {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .italic-font {
+            font-style: italic;
+        }
+
+        .small-font {
+            font-size: 0.8em; /* Decrease the font size */
+        }
+    </style>
+</head>
+<body>
+    <div class="gov-id">
+        Gov Id :#DRD18976
+    </div>
+
+    <header>
+        <h1>Serenova Healthcare</h1>
+        <div id="pageSwitch">
+            <label class="switch">
+                <input type="checkbox" id="toggleGovernmentEmployee" checked onchange="if(!this.checked) { window.location.href='/redirect_to_index'; }">
+                <span class="slider"></span>
+            </label>
+            <span class="latin-font italic-font small-font">Government Employee</span>
+        </div>
+        <p class="gov-text" style="margin-top: 20px;">- government employee -</p>
+        <nav aria-label="Main navigation">
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Special Touch Healthcare</h2>
+            <p>Providing comprehensive healthcare services with the latest technology and compassionate care.</p>
+        </div>
+        <div class="hero-image">
+            <img src="https://advinhealthcare.com/wp-content/uploads/2022/12/Types-of-Hospitals-2.jpg" alt="Hospital Building">
+        </div>
+        
+        <style>
+            .hero-image img {
+                width: 70%; /* Adjust the percentage to control the size */
+                height: auto; /* Maintain aspect ratio */
+            }
+        </style>
+        
+
+    <section class="services" id="services">
+        <h3>Our Services</h3>
+        <div class="service-list">
+            <!-- Reimbursement Service (First) -->
+            <div class="service">
+                <img src="{{ url_for('static', filename='images/reimbursement.jpeg') }}" alt="Reimbursement">
+                <h4>Reimbursement</h4>
+                <p>Submit and track your medical expense reimbursement claims</p>
+                <a href="/reimbursement">Claim Now</a>
+            </div>
+
+            <!-- Insurance Services -->
+            <div class="service">
+                <img src="https://jupiter.money/blog/wp-content/uploads/2024/06/What_is_Health_Insurance.jpg" alt="Health Insurance">
+                <h4>Insurance</h4>
+                <a href="/insurance">Get Coverage</a>
+            </div>
+
+            <!-- Blood Bank Services -->
+            <div class="service">
+                <img src="https://www.drsstantiamch.org/uploads/infrastructure/blood_bank.jpg" alt="Blood Donation">
+                <h4>Blood Bank</h4>
+                <a href="/blood_donation">Donate Blood</a>
+            </div>
+
+            <!-- E-Pharmacy -->
+            <div class="service">
+                <img src="https://img.freepik.com/free-photo/pharmacist-holding-medicine-box-tablet-container-pharmacy-drugstore_31965-8352.jpg" alt="E-Pharmacy">
+                <h4>E-Pharmacy</h4>
+                <a href="/epharmacy">Order Medicines</a>
+            </div>
+
+            <!-- Appointments -->
+            <div class="service">
+                <img src="https://img.freepik.com/free-photo/appointment-booking-medical-healthcare-concept_53876-132197.jpg" alt="Book Appointment">
+                <h4>Appointments</h4>
+                <a href="/appointments">Book Now</a>
+            </div>
+
+            <!-- Specialties -->
+            <div class="service">
+                <img src="https://img.freepik.com/free-photo/medical-workers-covid-19-vaccination-concept-confident-professional-doctor-female-nurse-blue-scrubs-stethoscope-cross-arms-chest-ready-help-patients_1258-58823.jpg" alt="Medical Specialties">
+                <h4>Specialties</h4>
+                <div class="specialty-links">
+                    <a href="/cardiology">Cardiology</a>
+                    <a href="/dermatology">Dermatology</a>
+                    <a href="/neurology">Neurology</a>
+                    <a href="/oncology">Oncology</a>
+                    <a href="/orthopedics">Orthopedics</a>
+                    <a href="/pediatrics">Pediatrics</a>
+                    <a href="/psychiatry">Psychiatry</a>
+                    <a href="/radiology">Radiology</a>
+                </div>
+            </div>
+
+            <!-- Consultations -->
+            <div class="service">
+                <img src="https://img.freepik.com/free-photo/online-doctor-consultation-concept_23-2148509670.jpg" alt="Consultations">
+                <h4>Consultations</h4>
+                <a href="/video_consultation">Video Consultation</a>
+            </div>
+
+            <!-- Health Check -->
+            <div class="service">
+                <img src="https://img.freepik.com/free-photo/doctor-examining-patient-clinic_23-2148970765.jpg" alt="Health Check">
+                <h4>Health Check</h4>
+                <a href="/health_check">Book Check-up</a>
+            </div>
+
+            <!-- Reports -->
+            <div class="service">
+                <img src="https://img.freepik.com/free-photo/medical-report-with-medical-equipment_23-2148844561.jpg" alt="Medical Reports">
+                <h4>Reports</h4>
+                <a href="/reports">View Reports</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>Contact us at: <strong>serenova@health.com</strong></p>
+    </footer>
+    
+    <style>
+        #contact {
+            width: 100%; /* Ensure the footer spans the full width */
+            background-color: #007bff; /* Optional: background color */
+            color: #fff; /* Optional: text color */
+            text-align: center; /* Center-align the text */
+            padding: 20px; /* Padding for some space around the content */
+            box-sizing: border-box; /* Ensure padding is included in the width calculation */
+        }
+    </style>
+    
+
+    <!-- Chat Box -->
+    <button class="chat-box-button" id="chatBoxButton">
+        <i class="fas fa-comment-medical"></i>
+    </button>
+    <div class="popup-container" id="chatBoxPopup">
+        <div class="chat-header">Talk to us</div>
+        <div class="chat-body">
+            <div class="chat-message bot">How can we assist you today?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Type your message..." />
+            <button id="sendMessageButton">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatBoxButton = document.getElementById('chatBoxButton');
+        const chatBoxPopup = document.getElementById('chatBoxPopup');
+        const sendMessageButton = document.getElementById('sendMessageButton');
+        const chatInput = document.getElementById('chatInput');
+
+        chatBoxButton.addEventListener('click', () => {
+            chatBoxPopup.classList.toggle('active');
+        });
+
+        sendMessageButton.addEventListener('click', async () => {
+            const userMessage = chatInput.value.trim();
+            if (userMessage) {
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.classList.add('chat-message', 'user');
+                userMessageDiv.textContent = userMessage;
+                document.querySelector('.chat-body').appendChild(userMessageDiv);
+
+                chatInput.value = '';
+                document.querySelector('.chat-body').scrollTop = document.querySelector('.chat-body').scrollHeight;
+
+                try {
+                    const response = await fetch('/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ message: userMessage })
+                    });
+                    const data = await response.json();
+
+                    const botMessageDiv = document.createElement('div');
+                    botMessageDiv.classList.add('chat-message', 'bot');
+                    botMessageDiv.textContent = data.response || 'Error: Unable to fetch response.';
+                    document.querySelector('.chat-body').appendChild(botMessageDiv);
+                    document.querySelector('.chat-body').scrollTop = document.querySelector('.chat-body').scrollHeight;
+                } catch (error) {
+                    const errorMessageDiv = document.createElement('div');
+                    errorMessageDiv.classList.add('chat-message', 'bot');
+                    errorMessageDiv.textContent = 'Error: Unable to connect to the server.';
+                    document.querySelector('.chat-body').appendChild(errorMessageDiv);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

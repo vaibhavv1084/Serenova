@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monthly Medical Subscription - SERENOVA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f3f4f6; /* Light gray background */
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+
+    .header {
+      width: 100%;
+      background-color: #1e90ff; /* Blue background */
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 32px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .subscription-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+      margin-top: 30px;
+    }
+
+    .subscription-box h1 {
+      font-size: 28px;
+      color: #1e90ff; /* Blue */
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .subscription-box p {
+      font-size: 16px;
+      color: #666;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .total-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      background-color: #1e90ff;
+      color: white;
+      padding: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #005bb5; /* Darker blue */
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    SERENOVA
+  </div>
+
+  <!-- Subscription Box -->
+  <div class="subscription-box">
+    <h1>Monthly Medical Subscription</h1>
+    <p>Subscribe to get your medicines delivered on time. Discounts available for long-term plans!</p>
+    <form action="#" method="POST" enctype="multipart/form-data">
+      <!-- Upload Prescription -->
+      <div class="form-group">
+        <label for="prescription">Upload Prescription:</label>
+        <input type="file" id="prescription" name="prescription" accept=".jpg, .jpeg, .png, .pdf" required>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <!-- House Number -->
+      <div class="form-group">
+        <label for="house-number">House Number:</label>
+        <input type="text" id="house-number" name="house-number" placeholder="Enter your house number" required>
+      </div>
+
+      <!-- Street Name -->
+      <div class="form-group">
+        <label for="street-name">Street Name:</label>
+        <input type="text" id="street-name" name="street-name" placeholder="Enter your street name" required>
+      </div>
+
+      <!-- Area -->
+      <div class="form-group">
+        <label for="area">Area:</label>
+        <input type="text" id="area" name="area" placeholder="Enter your area" required>
+      </div>
+
+      <!-- State -->
+      <div class="form-group">
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" placeholder="Enter your state" required>
+      </div>
+
+      <!-- Pincode -->
+      <div class="form-group">
+        <label for="pincode">Pincode:</label>
+        <input type="text" id="pincode" name="pincode" placeholder="Enter your pincode" required>
+      </div>
+
+      <!-- Delivery Months -->
+      <div class="form-group">
+        <label for="months">How many months should the medicines be delivered to the above address?</label>
+        <input type="number" id="months" name="months" min="1" placeholder="Enter number of months" required>
+      </div>
+
+      <!-- Preferred Delivery Date -->
+      <div class="form-group">
+        <label for="delivery-date">Preferred Delivery Date (Every Month):</label>
+        <input type="number" id="delivery-date" name="delivery-date" min="1" max="31" placeholder="Enter a date (1-31)" required>
+      </div>
+
+      <!-- Payment Options -->
+      <div class="form-group">
+        <label for="payment">Payment Method:</label>
+        <select id="payment" name="payment" required>
+          <option value="full">Pay Full Amount</option>
+          <option value="partial">Pay Partially</option>
+          <option value="cod">Cash on Delivery (COD)</option>
+        </select>
+      </div>
+
+      <!-- Total Price -->
+      <div class="total-price" id="total-price">
+        Total Price: ₹0
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn-submit">Subscribe Now</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2024 SERENOVA. All Rights Reserved. Delivering Health, Always On Time.
+  </footer>
+
+  <script>
+    const monthsInput = document.getElementById("months");
+    const totalPriceDiv = document.getElementById("total-price");
+
+    // Price per month
+    const monthlyPrice = 1000; // ₹1000 per month
+
+    // Discounts
+    const discountRates = {
+      3: 0.05, // 5% discount for 3 months
+      6: 0.10, // 10% discount for 6 months
+      12: 0.20 // 20% discount for 12 months or more
+    };
+
+    function calculatePrice() {
+      const months = parseInt(monthsInput.value, 10);
+      if (!isNaN(months) && months > 0) {
+        let totalPrice = months * monthlyPrice;
+
+        // Apply discount
+        if (months >= 12) {
+          totalPrice -= totalPrice * discountRates[12];
+        } else if (months >= 6) {
+          totalPrice -= totalPrice * discountRates[6];
+        } else if (months >= 3) {
+          totalPrice -= totalPrice * discountRates[3];
+        }
+
+        totalPriceDiv.textContent = `Total Price: ₹${totalPrice}`;
+      } else {
+        totalPriceDiv.textContent = "Total Price: ₹0";
+      }
+    }
+
+    monthsInput.addEventListener("input", calculatePrice);
+  </script>
+</body>
+</html>
